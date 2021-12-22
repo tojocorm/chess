@@ -1,9 +1,7 @@
 #include "main.h"
 #include "globals.h"
 
-using std::cout;
-using std::endl;
-using std::min;
+
 
 std::vector<bool> serviced_requesters;
 // maps from requester to track
