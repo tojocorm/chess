@@ -16,9 +16,16 @@ std::string get_type(pieceType type){
             return "Queen";
    }
 }
-
+// return the points of the vector
 int get_points(std::vector< pieceType > vec){
-    std::vector<int> vals{1, 3, 3, 5, 9, 0};
+    std::vector<int> vals;
+    vals.push_back(1);
+    vals.push_back(3);
+    vals.push_back(3);
+    vals.push_back(5);
+    vals.push_back(9);
+    vals.push_back(0);
+
     int sum = 0;
     for(int i = 0; i < vec.size(); ++i){
 
