@@ -17,6 +17,7 @@ std::string get_type(pieceType type){
         case Blank :
             return "Blank";
    }
+   return "";
 }
 // return the points of the vector
 int get_points(std::vector< pieceType > vec){
@@ -52,4 +53,5 @@ std::string get_board_symbol(pieceType type){
         case Blank :
             return "o";
    }
+   return "";
 }

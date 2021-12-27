@@ -9,8 +9,8 @@ void print_board(const int turn){
 
     cout << " has taken pieces: ";
     for(auto it = takenPieces[this_turn].begin(); it != takenPieces[this_turn].end(); ++it){
-        pieceType type = it.first;
-        int num = it.second;
+        pieceType type = it->first;
+        int num = it->second;
         for(int i = 0; i < num; ++i){
             cout << get_type(type) << ", ";
         }
@@ -43,9 +43,9 @@ void print_board(const int turn){
 
     cout << " has taken pieces: ";
     for(auto it = takenPieces[this_turn].begin(); it != takenPieces[this_turn].end(); ++it){
-        pieceType type = it.first;
-        int num = it.second;
-        for(size_t i = 0; i < num; ++i){
+        pieceType type = it->first;
+        int num = it->second;
+        for(int i = 0; i < num; ++i){
             cout << get_type(type) << ", ";
         }
     }

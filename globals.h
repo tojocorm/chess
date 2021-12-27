@@ -1,3 +1,6 @@
+#ifndef GLOBALS_H
+#define GLOBALS_H
+
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -31,3 +34,4 @@ void print_space(pieceType type);
 // return the symbol to be printed on the board
 std::string get_board_symbol(pieceType type);
 
+#endif
