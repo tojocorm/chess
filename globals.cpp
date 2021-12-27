@@ -14,6 +14,8 @@ std::string get_type(pieceType type){
             return "King";
         case Queen :
             return "Queen";
+        case Blank :
+            return "Blank";
    }
 }
 // return the points of the vector
@@ -28,6 +30,26 @@ int get_points(std::vector< pieceType > vec){
 
     int sum = 0;
     for(int i = 0; i < vec.size(); ++i){
-
+        sum += vals[vec[i]];
     }
+    return sum;
+}
+
+std::string get_board_symbol(pieceType type){
+    switch(type) {
+        case Pawn :
+            return "P";
+        case Bishop :
+            return "B";
+        case Knight :
+            return "K";
+        case Rook :
+            return "R";
+        case King :
+            return "X";
+        case Queen :
+            return "Q";
+        case Blank :
+            return "o";
+   }
 }
