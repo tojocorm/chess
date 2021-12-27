@@ -15,22 +15,29 @@ void print_board(const int turn){
             cout << get_type(type) << ", ";
         }
     }
+    cout << endl;
 
     if(turn == White){
+        cout << "  a b c d e f g h" << endl;
         for(int i = board.size() - 1; i >= 0; --i){
+            cout << i + 1 << " ";
             for(int j = board[i].size() - 1; j >= 0; --j){
                 print_space(board[i][j]);
             }
             cout << endl;
         }
+        cout << endl;
     }
     else{
+        cout << "  h g f e d c b a" << endl;
         for(int i = 0; i < board.size(); ++i){
+            cout << i + 1 << " ";
             for(int j = 0; j < board[i].size(); ++j){
                 print_space(board[i][j]);
             }
             cout << endl;
         }
+        cout << endl;
     }
     turn == White ? cout << "White" : cout << "Black";
 
