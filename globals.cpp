@@ -29,7 +29,7 @@ int get_points(std::vector< pieceType > vec){
     vals.push_back(0);
 
     int sum = 0;
-    for(int i = 0; i < vec.size(); ++i){
+    for(size_t i = 0; i < vec.size(); ++i){
         sum += vals[vec[i]];
     }
     return sum;
