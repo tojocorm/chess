@@ -35,7 +35,9 @@ const int Black = 1;
 extern std::vector< std::unordered_map< pieceType, int > > takenPieces;
 // this is stored from whites perspective -- this means that a1 is indexed at [1][1]
 extern std::vector< std::vector< piece > > board;
-
+// whose turn is it
+extern int turn;
+// how many moves
 extern int move;
 // return string of the piece
 std::string get_type(piece type);
@@ -51,4 +53,7 @@ bool valid_move(std::string play, bool check);
 void make_move(std::string play);
 // check if there is a checkmate
 int check_checkmate(int turn);
+// print the instructions
+void print_instructions();
+
 #endif

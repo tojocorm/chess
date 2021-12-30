@@ -4,12 +4,13 @@
 #include "globals.h"
 
 // prints the board from the perspective of turn
-void print_board(const int turn);
+void print_board();
 // prints a specific square on the board
 void print_space(pieceType type);
-
-void pieces_taken(int this_turn);
+// prints the pieces taken by the player
+void pieces_taken(int player);
 
 void cout_board(int turn);
+
 
 #endif

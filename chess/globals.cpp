@@ -78,7 +78,7 @@ char get_board_symbol(piece piece){
 }
 
 bool valid_move(std::string play, bool check){
-    return false;
+    return true;
 }
 
 void make_move(std::string play){
@@ -87,4 +87,10 @@ void make_move(std::string play){
 // 0 is neither check nor mate, 1 is check, 2 is mate
 int check_checkmate(int turn){
     return 0;
+}
+
+void print_instructions(){
+    cout << "Let's play chess: White moves first!" << endl;
+    cout << "Usage: in order to move a piece from a5 to a6, type command a5 a6." << endl;
+    cout << "ie src dst;" << endl << endl;
 }

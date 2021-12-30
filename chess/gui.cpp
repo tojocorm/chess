@@ -1,12 +1,12 @@
 #include "gui.h"
 
 // prints the board from the perspective of turn
-void print_board(const int turn){
+void print_board(){
     // invert turn -- everything for the current turn should be printed last
-    int this_turn = !turn;
+    int player = !turn;
     cout << "Game Board, Move " << move << ":" << endl << endl;
     
-    pieces_taken(this_turn);
+    pieces_taken(player);
     
     cout_board(turn);
     
@@ -18,11 +18,11 @@ void print_space(piece piece){
     cout << symbol << " ";
 }
 
-void pieces_taken(int this_turn){
-    this_turn == White ? cout << "White" : cout << "Black";
+void pieces_taken(int player){
+    player == White ? cout << "White" : cout << "Black";
 
     cout << " has taken pieces: ";
-    for(auto it = takenPieces[this_turn].begin(); it != takenPieces[this_turn].end(); ++it){
+    for(auto it = takenPieces[player].begin(); it != takenPieces[player].end(); ++it){
         pieceType type = it->first;
         int num = it->second;
         for(int i = 0; i < num; ++i){

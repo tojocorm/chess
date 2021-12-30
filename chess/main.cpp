@@ -7,22 +7,18 @@ std::vector< std::unordered_map< pieceType, int > > takenPieces;
 // this is stored from whites perspective -- this means that a1 is indexed at [1][1]
 std::vector< std::vector< piece > > board;
 
-int move = White;
-
+int move = 0;
+int turn = White;
 void run_game(){
-    cout << "Let's play chess: White moves first!" << endl;
-    cout << "Usage: in order to move a piece from a5 to a6, type command a5 a6." << endl;
-    cout << "ie src dst;" << endl << endl;
-    std::string play;
-    move = White;
-    std::vector<std::string > move_vec;
-    move_vec.push_back("");
-    move_vec.push_back("");
-    move_vec[White] = "White's ";
-    move_vec[Black] = "Black's ";
+    print_instructions();
 
-    cout << move_vec[White] << "move: ";
+    turn = White;
+    print_board();
+    std::vector<std::string > move_vec{"White's ", "Black's "};
+
+    cout << move_vec[turn] << "move: ";
     bool check = false;
+    std::string play;
     while(cin >> play){
         
         while(!valid_move(play, check)){
@@ -31,7 +27,7 @@ void run_game(){
         }
         make_move(play);
         
-        switch(check_checkmate(move)){
+        switch(check_checkmate(turn)){
             // neither
             case(0) :
                 cout << "NOTHING" << endl;
@@ -46,9 +42,11 @@ void run_game(){
                 cout << "MATE" << endl;
                 break;
         }
-        
-        move = !move;
-        cout << move_vec[move] << "move: ";
+
+        turn = !turn;
+        print_board();
+        check ? cout << "Must respond to Check" : cout << "";
+        cout << move_vec[turn] << "move: ";
     }
     
 }
@@ -69,8 +67,8 @@ int main(int argc, char *argv[])
     row.push_back(rook);
     row.push_back(knight);
     row.push_back(bishop);
-    row.push_back(queen);
     row.push_back(king);
+    row.push_back(queen);
     row.push_back(bishop);
     row.push_back(knight);
     row.push_back(rook);
@@ -96,8 +94,6 @@ int main(int argc, char *argv[])
     }
     board.push_back(pawns);
     board.push_back(row);
-    print_board(White);
-    print_board(Black);
     
-    // run_game();
+    run_game();
 }
