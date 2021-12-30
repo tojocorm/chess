@@ -35,9 +35,9 @@ void pieces_taken(int player){
 
 void cout_board(int turn){
     if(turn == White){
-        cout << "  a b c d e f g h" << endl;
+        cout << "   a b c d e f g h" << endl << endl;
         for(int i = (int)board.size() - 1; i >= 0; --i){
-            cout << i + 1 << " ";
+            cout << i + 1 << "  ";
             for(int j = (int)board[i].size() - 1; j >= 0; --j){
                 print_space(board[i][j]);
             }
@@ -46,9 +46,9 @@ void cout_board(int turn){
         cout << endl;
     }
     else{
-        cout << "  h g f e d c b a" << endl;
+        cout << "   h g f e d c b a" << endl << endl;
         for(size_t i = 0; i < board.size(); ++i){
-            cout << i + 1 << " ";
+            cout << i + 1 << "  ";
             for(size_t j = 0; j < board[i].size(); ++j){
                 print_space(board[i][j]);
             }

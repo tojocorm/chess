@@ -55,5 +55,6 @@ void make_move(std::string play);
 int check_checkmate(int turn);
 // print the instructions
 void print_instructions();
-
+// get the indices in the vector of the moves
+std::pair<std::pair<int, int>, std::pair<int, int>> get_move_indices(std::string play);
 #endif

@@ -82,6 +82,18 @@ bool valid_move(std::string play, bool check){
 }
 
 void make_move(std::string play){
+    std::pair<std::pair<int, int>, std::pair<int, int>> to_from = get_move_indices(play);
+    piece *moved_piece = &board[to_from.first.first][to_from.first.second];
+    piece *new_location = &board[to_from.second.first][to_from.second.second];
+
+    piece taken_piece = board[to_from.second.first][to_from.second.second];
+    new_location->type = moved_piece->type;
+    new_location->color = moved_piece->color;
+
+    moved_piece->type = Blank;
+    moved_piece->color = -1;
+    
+
     return;
 }
 // 0 is neither check nor mate, 1 is check, 2 is mate
@@ -93,4 +105,16 @@ void print_instructions(){
     cout << "Let's play chess: White moves first!" << endl;
     cout << "Usage: in order to move a piece from a5 to a6, type command a5 a6." << endl;
     cout << "ie src dst;" << endl << endl;
+}
+// return row col in the vector
+std::pair<std::pair<int, int>, std::pair<int, int>> get_move_indices(std::string play){
+    int src_col = play[0] - 'a';
+    int src_row = play[1] - '1';
+    int dst_col = play[3] - 'a';
+    int dst_row = play[4] - '1';
+
+    std::pair<int, int> src = std::make_pair(src_row, src_col);
+    std::pair<int, int> dst = std::make_pair(dst_row, dst_col);
+    
+    return std::make_pair(src, dst);
 }
