@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
     row.push_back(knight);
     row.push_back(rook);
     
-    piece blank(White, Blank);
+    piece blank(-1, Blank);
     piece pawn(White, Pawn);
     for(int i = 0; i < 8; ++i){
         empty.push_back(blank);

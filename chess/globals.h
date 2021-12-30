@@ -63,4 +63,6 @@ void add_to_taken(piece taken_piece);
 int letter_to_ind(char val);
 // convert an int char to ind
 int num_to_ind(char val);
+// can this piece move like this
+bool legal_move(piece *moved_piece, std::pair<std::pair<int, int>, std::pair<int, int>> to_from);
 #endif

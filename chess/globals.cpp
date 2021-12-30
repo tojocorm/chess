@@ -96,6 +96,18 @@ bool valid_move(std::string play, bool check){
     if(play[2] != ' '){
         return false;
     }
+    std::pair<std::pair<int, int>, std::pair<int, int>> to_from = get_move_indices(play);
+    piece *moved_piece = &board[to_from.first.first][to_from.first.second];
+    piece *new_location = &board[to_from.second.first][to_from.second.second];
+    if(moved_piece->color != turn){
+        return false;
+    }
+    if(new_location->type != Blank && new_location->color == turn){
+        return false;
+    }
+    if(!legal_move(moved_piece, to_from)){
+        return false;
+    }
     return true;
 }
 
@@ -154,4 +166,8 @@ int letter_to_ind(char val){
 }
 int num_to_ind(char val){
     return val - '1';
+}
+
+bool legal_move(piece *moved_piece, std::pair<std::pair<int, int>, std::pair<int, int>> to_from){
+    
 }
