@@ -57,4 +57,7 @@ int check_checkmate(int turn);
 void print_instructions();
 // get the indices in the vector of the moves
 std::pair<std::pair<int, int>, std::pair<int, int>> get_move_indices(std::string play);
+// add the taken piece to the data stucture
+void add_to_taken(piece taken_piece);
+
 #endif

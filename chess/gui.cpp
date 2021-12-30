@@ -38,7 +38,7 @@ void cout_board(int turn){
         cout << "   a b c d e f g h" << endl << endl;
         for(int i = (int)board.size() - 1; i >= 0; --i){
             cout << i + 1 << "  ";
-            for(int j = (int)board[i].size() - 1; j >= 0; --j){
+            for(int j = 0; j < 8; ++j){
                 print_space(board[i][j]);
             }
             cout << endl;
@@ -49,7 +49,7 @@ void cout_board(int turn){
         cout << "   h g f e d c b a" << endl << endl;
         for(size_t i = 0; i < board.size(); ++i){
             cout << i + 1 << "  ";
-            for(size_t j = 0; j < board[i].size(); ++j){
+            for(int j = 7; j >= 0; --j){
                 print_space(board[i][j]);
             }
             cout << endl;

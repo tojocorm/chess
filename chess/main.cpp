@@ -19,8 +19,11 @@ void run_game(){
     cout << move_vec[turn] << "move: ";
     bool check = false;
     std::string play;
-    while(cin >> play){
-        
+    std::string src;
+    std::string dst;
+    
+    while(cin >> src >> dst){
+        play = src + " " + dst;
         while(!valid_move(play, check)){
             cout << "Invalid Move -- try again: ";
             cin >> play;
@@ -42,7 +45,6 @@ void run_game(){
                 cout << "MATE" << endl;
                 break;
         }
-
         turn = !turn;
         print_board();
         check ? cout << "Must respond to Check" : cout << "";
@@ -67,8 +69,8 @@ int main(int argc, char *argv[])
     row.push_back(rook);
     row.push_back(knight);
     row.push_back(bishop);
-    row.push_back(king);
     row.push_back(queen);
+    row.push_back(king);
     row.push_back(bishop);
     row.push_back(knight);
     row.push_back(rook);

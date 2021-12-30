@@ -93,6 +93,7 @@ void make_move(std::string play){
     moved_piece->type = Blank;
     moved_piece->color = -1;
     
+    add_to_taken(taken_piece);
 
     return;
 }
@@ -117,4 +118,11 @@ std::pair<std::pair<int, int>, std::pair<int, int>> get_move_indices(std::string
     std::pair<int, int> dst = std::make_pair(dst_row, dst_col);
     
     return std::make_pair(src, dst);
+}
+
+void add_to_taken(piece taken_piece){
+    if(takenPieces[turn].find(taken_piece.type) == takenPieces[turn].end()){
+        takenPieces[turn][taken_piece.type] = 0;
+    }
+    takenPieces[turn][taken_piece.type] += 1;
 }
