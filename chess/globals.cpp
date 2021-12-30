@@ -169,5 +169,5 @@ int num_to_ind(char val){
 }
 
 bool legal_move(piece *moved_piece, std::pair<std::pair<int, int>, std::pair<int, int>> to_from){
-    
+    return true;
 }

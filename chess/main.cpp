@@ -26,7 +26,8 @@ void run_game(){
         play = src + " " + dst;
         while(!valid_move(play, check)){
             cout << "Invalid Move -- try again: ";
-            cin >> play;
+            cin >> src >> dst;
+            play = src + " " + dst;
         }
         make_move(play);
         
