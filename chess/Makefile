@@ -16,11 +16,11 @@ all: chess $(TESTS)
 tests: $(TESTS)
 
 # Compile the file server and tag this compilation
-chess: ${CHESS_OBJS}
+chess: ${CHESS_OBJS} libfs_server.o
 	${CC} -o $@ $^ -pthread -ldl
 
 # Compile a client program
-test%: test%.cpp
+test%: test%.cpp libfs_client.o
 	${CC} -o $@ $^
 
 # Generic rules for compiling a source file to an object file

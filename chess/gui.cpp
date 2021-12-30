@@ -15,13 +15,13 @@ void print_board(const int turn){
             cout << get_type(type) << ", ";
         }
     }
-    cout << endl;
+    cout << endl << endl;
 
     if(turn == White){
         cout << "  a b c d e f g h" << endl;
-        for(size_t i = board.size() - 1; i >= 0; --i){
+        for(int i = (int)board.size() - 1; i >= 0; --i){
             cout << i + 1 << " ";
-            for(size_t j = board[i].size() - 1; j >= 0; --j){
+            for(int j = (int)board[i].size() - 1; j >= 0; --j){
                 print_space(board[i][j]);
             }
             cout << endl;
@@ -45,13 +45,14 @@ void print_board(const int turn){
     for(auto it = takenPieces[this_turn].begin(); it != takenPieces[this_turn].end(); ++it){
         pieceType type = it->first;
         int num = it->second;
-        for(int i = 0; i < num; ++i){
+        for(size_t i = 0; i < num; ++i){
             cout << get_type(type) << ", ";
         }
     }
+    cout << endl << endl;
 }
 
 void print_space(pieceType type){
-    std::string symbol = get_board_symbol(type);
+    char symbol = get_board_symbol(type);
     cout << symbol << " ";
 }

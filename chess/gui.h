@@ -8,4 +8,5 @@ void print_board(const int turn);
 // prints a specific square on the board
 void print_space(pieceType type);
 
+
 #endif

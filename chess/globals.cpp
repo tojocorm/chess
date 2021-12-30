@@ -16,8 +16,8 @@ std::string get_type(pieceType type){
             return "Queen";
         case Blank :
             return "Blank";
-   }
-   return "";
+    }
+    return "";
 }
 // return the points of the vector
 int get_points(std::vector< pieceType > vec){
@@ -36,22 +36,43 @@ int get_points(std::vector< pieceType > vec){
     return sum;
 }
 
-std::string get_board_symbol(pieceType type){
+char get_board_symbol(pieceType type){
+    // not sure how to do this but I weant these unicodes
+    // https://en.wikipedia.org/wiki/Chess_symbols_in_Unicode
+    int color = 0;
+    if(color == Black){
+        switch(type) {
+            case Pawn :
+                return 'P';
+            case Bishop :
+                return 'B';
+            case Knight :
+                return 'K';
+            case Rook :
+                return 'R';
+            case King :
+                return 'X';
+            case Queen :
+                return 'Q';
+            case Blank :
+                return 'o';
+        }
+    }
     switch(type) {
         case Pawn :
-            return "P";
+            return 'P';
         case Bishop :
-            return "B";
+            return 'B';
         case Knight :
-            return "K";
+            return 'K';
         case Rook :
-            return "R";
+            return 'R';
         case King :
-            return "X";
+            return 'X';
         case Queen :
-            return "Q";
+            return 'Q';
         case Blank :
-            return "o";
-   }
-   return "";
+            return 'o';
+    }
+    return '\0';
 }
