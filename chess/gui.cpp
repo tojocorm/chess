@@ -12,7 +12,8 @@ void print_board(const int turn){
         pieceType type = it->first;
         int num = it->second;
         for(int i = 0; i < num; ++i){
-            cout << get_type(type) << ", ";
+            piece piece(White, type);
+            cout << get_type(piece) << ", ";
         }
     }
     cout << endl << endl;
@@ -46,13 +47,14 @@ void print_board(const int turn){
         pieceType type = it->first;
         int num = it->second;
         for(size_t i = 0; i < num; ++i){
-            cout << get_type(type) << ", ";
+            piece piece(White, type);
+            cout << get_type(piece) << ", ";
         }
     }
     cout << endl << endl;
 }
 
-void print_space(pieceType type){
-    char symbol = get_board_symbol(type);
+void print_space(piece piece){
+    char symbol = get_board_symbol(piece);
     cout << symbol << " ";
 }

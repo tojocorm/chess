@@ -5,7 +5,7 @@
 std::vector< std::unordered_map< pieceType, int > > takenPieces;
 
 // this is stored from whites perspective -- this means that a1 is indexed at [1][1]
-std::vector< std::vector< pieceType > > board;
+std::vector< std::vector< piece > > board;
 
 int move = White;
 
@@ -29,16 +29,17 @@ int main(int argc, char *argv[])
     row.push_back(bishop);
     row.push_back(knight);
     row.push_back(rook);
-
+    
+    piece blank(White, Blank);
+    piece pawn(White, Pawn);
     for(int i = 0; i < 8; ++i){
-        piece blank(White, Blank)
-        piece pawn(White, Pawn);
         empty.push_back(blank);
         pawns.push_back(pawn);
     }
-    std::unordered_map < piece, int > temp_map;
-    takenPieces.push_back(temp_map);
-    takenPieces.push_back(temp_map);
+    std::unordered_map< pieceType, int > map;
+    takenPieces.push_back(map);
+    takenPieces.push_back(map);
+
     board.push_back(row);
     board.push_back(pawns);
     for(int i = 0; i < 4; i ++){

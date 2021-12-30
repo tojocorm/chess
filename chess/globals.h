@@ -31,7 +31,7 @@ class piece
 const int White = 0;
 const int Black = 1;
 // length 2, taken[White] is the map of pieces to quantity that white has taken from Black
-extern std::vector< std::unordered_map< piece, int > > takenPieces;
+extern std::vector< std::unordered_map< pieceType, int > > takenPieces;
 // this is stored from whites perspective -- this means that a1 is indexed at [1][1]
 extern std::vector< std::vector< piece > > board;
 
