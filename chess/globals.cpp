@@ -78,6 +78,24 @@ char get_board_symbol(piece piece){
 }
 
 bool valid_move(std::string play, bool check){
+    if(play.length() != 5){
+        return false;
+    }
+    if(letter_to_ind(play[0]) > 7 || letter_to_ind(play[0]) < 0){
+        return false;
+    }
+    if(letter_to_ind(play[3]) > 7 || letter_to_ind(play[3]) < 0){
+        return false;
+    }
+    if(num_to_ind(play[1]) > 7 || num_to_ind(play[1]) < 0){
+        return false;
+    }
+    if(num_to_ind(play[4]) > 7 || num_to_ind(play[4]) < 0){
+        return false;
+    }
+    if(play[2] != ' '){
+        return false;
+    }
     return true;
 }
 
@@ -109,10 +127,10 @@ void print_instructions(){
 }
 // return row col in the vector
 std::pair<std::pair<int, int>, std::pair<int, int>> get_move_indices(std::string play){
-    int src_col = play[0] - 'a';
-    int src_row = play[1] - '1';
-    int dst_col = play[3] - 'a';
-    int dst_row = play[4] - '1';
+    int src_col = letter_to_ind(play[0]);
+    int src_row = num_to_ind(play[1]);
+    int dst_col = letter_to_ind(play[3]);
+    int dst_row = num_to_ind(play[4]);
 
     std::pair<int, int> src = std::make_pair(src_row, src_col);
     std::pair<int, int> dst = std::make_pair(dst_row, dst_col);
@@ -121,8 +139,19 @@ std::pair<std::pair<int, int>, std::pair<int, int>> get_move_indices(std::string
 }
 
 void add_to_taken(piece taken_piece){
+    if(taken_piece.type == Blank){
+        return;
+    }
     if(takenPieces[turn].find(taken_piece.type) == takenPieces[turn].end()){
         takenPieces[turn][taken_piece.type] = 0;
     }
     takenPieces[turn][taken_piece.type] += 1;
+    return;
+}
+            
+int letter_to_ind(char val){
+    return val - 'a';
+}
+int num_to_ind(char val){
+    return val - '1';
 }

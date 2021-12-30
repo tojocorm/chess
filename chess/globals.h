@@ -59,5 +59,8 @@ void print_instructions();
 std::pair<std::pair<int, int>, std::pair<int, int>> get_move_indices(std::string play);
 // add the taken piece to the data stucture
 void add_to_taken(piece taken_piece);
-
+// convert letter to an indices
+int letter_to_ind(char val);
+// convert an int char to ind
+int num_to_ind(char val);
 #endif
