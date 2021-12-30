@@ -22,11 +22,31 @@ void run_game(){
     move_vec[Black] = "Black's ";
 
     cout << move_vec[White] << "move: ";
+    bool check = false;
     while(cin >> play){
         
-        while(!valid_move(play)){
+        while(!valid_move(play, check)){
             cout << "Invalid Move -- try again: ";
+            cin >> play;
         }
+        make_move(play);
+        
+        switch(check_checkmate(move)){
+            // neither
+            case(0) :
+                cout << "NOTHING" << endl;
+
+            // check
+            case(1) :
+                cout << "CHECK" << endl;
+                check = true;
+
+            // check mate
+            case(2) :
+                cout << "MATE" << endl;
+                break;
+        }
+        
         move = !move;
         cout << move_vec[move] << "move: ";
     }

@@ -46,6 +46,9 @@ void print_space(piece type);
 // return the symbol to be printed on the board
 char get_board_symbol(piece type);
 // check that, given who's turn it is and the move, is it valid
-bool valid_move(std::string play);
-
+bool valid_move(std::string play, bool check);
+// make the move
+void make_move(std::string play);
+// check if there is a checkmate
+int check_checkmate(int turn);
 #endif

@@ -8,6 +8,32 @@ void print_board(const int turn){
     
     pieces_taken(this_turn);
     
+    cout_board(turn);
+    
+    pieces_taken(turn);
+}
+
+void print_space(piece piece){
+    char symbol = get_board_symbol(piece);
+    cout << symbol << " ";
+}
+
+void pieces_taken(int this_turn){
+    this_turn == White ? cout << "White" : cout << "Black";
+
+    cout << " has taken pieces: ";
+    for(auto it = takenPieces[this_turn].begin(); it != takenPieces[this_turn].end(); ++it){
+        pieceType type = it->first;
+        int num = it->second;
+        for(int i = 0; i < num; ++i){
+            piece piece(White, type);
+            cout << get_type(piece) << ", ";
+        }
+    }
+    cout << endl << endl;
+}
+
+void cout_board(int turn){
     if(turn == White){
         cout << "  a b c d e f g h" << endl;
         for(int i = (int)board.size() - 1; i >= 0; --i){
@@ -30,25 +56,4 @@ void print_board(const int turn){
         }
         cout << endl;
     }
-    pieces_taken(turn);
-}
-
-void print_space(piece piece){
-    char symbol = get_board_symbol(piece);
-    cout << symbol << " ";
-}
-
-void pieces_taken(int this_turn){
-    this_turn == White ? cout << "White" : cout << "Black";
-
-    cout << " has taken pieces: ";
-    for(auto it = takenPieces[this_turn].begin(); it != takenPieces[this_turn].end(); ++it){
-        pieceType type = it->first;
-        int num = it->second;
-        for(int i = 0; i < num; ++i){
-            piece piece(White, type);
-            cout << get_type(piece) << ", ";
-        }
-    }
-    cout << endl << endl;
 }

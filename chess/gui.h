@@ -9,4 +9,7 @@ void print_board(const int turn);
 void print_space(pieceType type);
 
 void pieces_taken(int this_turn);
+
+void cout_board(int turn);
+
 #endif

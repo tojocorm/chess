@@ -77,6 +77,14 @@ char get_board_symbol(piece piece){
     return '\0';
 }
 
-bool valid_move(std::string play){
-    
+bool valid_move(std::string play, bool check){
+    return false;
+}
+
+void make_move(std::string play){
+    return;
+}
+// 0 is neither check nor mate, 1 is check, 2 is mate
+int check_checkmate(int turn){
+    return 0;
 }
