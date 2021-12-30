@@ -12,6 +12,7 @@
 #include <vector>
 
 using std::cout;
+using std::cin;
 using std::endl;
 using std::min;
 enum pieceType {Pawn = 0, Bishop = 1, Knight = 2, Rook = 3, Queen = 4, King = 5, Blank = 6};
@@ -44,5 +45,7 @@ int get_points(std::vector< piece > vec);
 void print_space(piece type);
 // return the symbol to be printed on the board
 char get_board_symbol(piece type);
+// check that, given who's turn it is and the move, is it valid
+bool valid_move(std::string play);
 
 #endif

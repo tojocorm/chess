@@ -9,6 +9,31 @@ std::vector< std::vector< piece > > board;
 
 int move = White;
 
+void run_game(){
+    cout << "Let's play chess: White moves first!" << endl;
+    cout << "Usage: in order to move a piece from a5 to a6, type command a5 a6." << endl;
+    cout << "ie src dst;" << endl << endl;
+    std::string play;
+    move = White;
+    std::vector<std::string > move_vec;
+    move_vec.push_back("");
+    move_vec.push_back("");
+    move_vec[White] = "White's ";
+    move_vec[Black] = "Black's ";
+
+    cout << move_vec[White] << "move: ";
+    while(cin >> play){
+        
+        while(!valid_move(play)){
+            cout << "Invalid Move -- try again: ";
+        }
+        move = !move;
+        cout << move_vec[move] << "move: ";
+    }
+    
+}
+
+
 
 int main(int argc, char *argv[])
 {
@@ -53,4 +78,6 @@ int main(int argc, char *argv[])
     board.push_back(row);
     print_board(White);
     print_board(Black);
+    
+    // run_game();
 }

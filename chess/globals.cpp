@@ -76,3 +76,7 @@ char get_board_symbol(piece piece){
     }
     return '\0';
 }
+
+bool valid_move(std::string play){
+    
+}
