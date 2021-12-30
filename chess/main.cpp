@@ -52,4 +52,5 @@ int main(int argc, char *argv[])
     board.push_back(pawns);
     board.push_back(row);
     print_board(White);
+    print_board(Black);
 }
