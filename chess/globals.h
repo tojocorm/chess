@@ -64,5 +64,8 @@ int letter_to_ind(char val);
 // convert an int char to ind
 int num_to_ind(char val);
 // can this piece move like this
-bool legal_move(piece *moved_piece, std::pair<std::pair<int, int>, std::pair<int, int>> to_from);
+bool legal_move(piece *moved_piece, std::pair<std::pair<int, int>, std::pair<int, int>> to_from, bool check);
+// find the address of the king !turn (white turn, black king)
+std::pair<int, int> get_king_address(int turn);
+
 #endif

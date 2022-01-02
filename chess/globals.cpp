@@ -105,7 +105,7 @@ bool valid_move(std::string play, bool check){
     if(new_location->type != Blank && new_location->color == turn){
         return false;
     }
-    if(!legal_move(moved_piece, to_from)){
+    if(!legal_move(moved_piece, to_from, check)){
         return false;
     }
     return true;
@@ -127,8 +127,14 @@ void make_move(std::string play){
 
     return;
 }
-// 0 is neither check nor mate, 1 is check, 2 is mate
+// 0 is neither check nor mate, 1 is check, 2 is mate -- this is for the other side (ie if it is whites turn, we are checking if the black king is checked)
 int check_checkmate(int turn){
+    std::pair<int, int> king = get_king_address(turn);
+    for(int row = 0; row < 8; ++row){
+        for(int col = 0; col < 8; ++col){
+            
+        }
+    }
     return 0;
 }
 
@@ -168,6 +174,18 @@ int num_to_ind(char val){
     return val - '1';
 }
 
-bool legal_move(piece *moved_piece, std::pair<std::pair<int, int>, std::pair<int, int>> to_from){
+bool legal_move(piece *moved_piece, std::pair<std::pair<int, int>, std::pair<int, int>> to_from, bool check){
     return true;
+}
+
+// find the address of the king !turn (white turn, black king) (-1 and -1 if not there)
+std::pair<int, int> get_king_address(int turn){
+    for(int row = 0; row < 8; ++row){
+        for(int col = 0; col < 8; ++col){
+            if(board[row][col].type == King && board[row][col].color == !turn){
+                return std::make_pair(row, col);
+            }
+        }
+    }
+    return std::make_pair(-1, -1);
 }
